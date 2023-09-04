@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Lanches, Bebidas, Sobremesas
+from .models import Categoria
+from .models import Produto
 
-admin.site.register(Lanches)
-admin.site.register(Bebidas)
-admin.site.register(Sobremesas)
+admin.site.register(Categoria)
+admin.site.register(Produto)
