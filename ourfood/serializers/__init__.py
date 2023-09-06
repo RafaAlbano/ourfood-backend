@@ -1,2 +1,2 @@
 from .categoria import CategoriaSerializer
-from .produtos import ProdutoSerializer
+from .produtos import ProdutoSerializer, ProdutoDetailSerializer
