@@ -11,10 +11,6 @@ router = DefaultRouter()
 router.register(r"categoria", CategoriaViewSet)
 router.register(r"produto", ProdutoViewSet)
 
-
-
-
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
