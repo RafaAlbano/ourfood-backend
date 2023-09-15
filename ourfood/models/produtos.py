@@ -1,8 +1,8 @@
 from django.db import models
 
+from uploader.models import Image
 from ourfood.models import Categoria
 
-from ourfood.models import Image
 
 class Produto(models.Model):
     titulo = models.CharField(max_length=255)
