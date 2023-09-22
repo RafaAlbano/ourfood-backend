@@ -4,14 +4,14 @@ name = ""
 version = ""
 description = ""
 authors = [
-    {name = "Heloisa Rafa Gabi", email = "rafaelaalbano70@gmail.com"},
+    {name = "rafaela albano", email = "rafaelaalbano70@gmail.com"},
 ]
 dependencies = [
     "django>=4.2.5",
-    "djangorestframework>=3.14.0",
+    "django-cors-headers>=4.2.0",
+    "drf-spectacular>=0.26.4",
     "python-magic>=0.4.27",
     "Pillow>=10.0.0",
-    "django-cors-headers>=4.2.0",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}

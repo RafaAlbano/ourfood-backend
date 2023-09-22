@@ -8,8 +8,8 @@ from rest_framework.routers import DefaultRouter
 from ourfood.views import CategoriaViewSet, ProdutoViewSet
 
 router = DefaultRouter()
-router.register(r"categoria", CategoriaViewSet)
-router.register(r"produto", ProdutoViewSet)
+router.register(r"categorias", CategoriaViewSet)
+router.register(r"produtos", ProdutoViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
