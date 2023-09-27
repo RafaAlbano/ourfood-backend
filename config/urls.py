@@ -10,11 +10,12 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
-from ourfood.views import CategoriaViewSet, ProdutoViewSet
+from ourfood.views import CategoriaViewSet, ProdutoViewSet, ClienteViewSet
 
 router = DefaultRouter()
-router.register(r"categorias", CategoriaViewSet)
-router.register(r"produtos", ProdutoViewSet)
+router.register(r"categorias", CategoriaViewSet, basename="categorias")
+router.register(r"produtos", ProdutoViewSet, basename="produtos")
+router.register(r"clientes", ClienteViewSet, basename="clientes")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
