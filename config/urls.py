@@ -10,7 +10,7 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
-from ourfood.views import CategoriaViewSet, ProdutoViewSet, ClienteViewSet, PedidoViewSet, ItemPedidoViewSet, FormaDePagamentoViewSet
+from ourfood.views import CategoriaViewSet, ProdutoViewSet, ClienteViewSet, PedidoViewSet, ItemPedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet
 
 router = DefaultRouter()
 router.register(r"categorias", CategoriaViewSet, basename="categorias")
@@ -19,7 +19,7 @@ router.register(r"pedidos", PedidoViewSet, basename="pedidos")
 router.register(r"clientes", ClienteViewSet, basename="clientes")
 router.register(r"itempedidos", ItemPedidoViewSet, basename="itempedidos")
 router.register(r"formapagamentos", FormaDePagamentoViewSet, basename="formadepagamentos")
-
+router.register(r"pagamentos", PagamentoViewSet, basename="pagamentos")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
