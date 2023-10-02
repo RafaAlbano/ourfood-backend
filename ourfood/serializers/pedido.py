@@ -1,7 +1,7 @@
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from ourfood.models import Pedido
 
-class PedidoSerializer(serializers.ModelSerializer):
+class PedidoSerializer(ModelSerializer):
     class Meta:
         model = Pedido
         fields = ['id', 'cliente', 'status', 'data_hora']

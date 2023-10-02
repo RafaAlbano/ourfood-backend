@@ -1,7 +1,7 @@
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from ourfood.models import Cliente
 
-class ClienteSerializer(serializers.ModelSerializer):
+class ClienteSerializer(ModelSerializer):
     class Meta:
         model = Cliente
         fields = ['id', 'nome', 'email']

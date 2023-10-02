@@ -4,7 +4,7 @@ from ourfood.serializers import PedidoSerializer
 from rest_framework.response import Response
 from rest_framework import status
 
-class PedidosViewSet(ModelViewSet):
+class PedidoViewSet(ModelViewSet):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
 

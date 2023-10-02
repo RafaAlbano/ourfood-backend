@@ -1,5 +1,4 @@
 from rest_framework.viewsets import ModelViewSet
-
 from ourfood.models import Produto
 from ourfood.serializers import ProdutoDetailSerializer, ProdutoSerializer
 

@@ -1,9 +1,9 @@
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from ourfood.models import ItemPedido
 
-class ItemPedidoSerializer(serializers.ModelSerializer):
+class ItemPedidoSerializer(ModelSerializer):
     class Meta:
         model = ItemPedido
-        fields = ['produto', 'pedido', 'quantidade']
+        fields = ['produto', 'pedido', 'quantidade', 'preco']
     
-# serializer = ItemPedidoSerializer(data=dados_do_pedido)
+
