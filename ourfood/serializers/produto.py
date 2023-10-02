@@ -1,9 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
 from ourfood.models import Produto
-
 from rest_framework.serializers import ModelSerializer, SlugRelatedField
-
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
 

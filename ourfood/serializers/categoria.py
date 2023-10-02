@@ -1,7 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-
 from ourfood.models import Categoria
-
 
 class CategoriaSerializer(ModelSerializer):
     class Meta:

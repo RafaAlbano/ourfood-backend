@@ -1,3 +1,5 @@
 from .categoria import CategoriaSerializer
-from .clientes import ClienteSerializer
-from .produtos import ProdutoSerializer, ProdutoDetailSerializer
+from .cliente import ClienteSerializer
+from .pedido import PedidoSerializer
+from .itempedido import ItemPedidoSerializer
+from .produto import ProdutoSerializer, ProdutoDetailSerializer
