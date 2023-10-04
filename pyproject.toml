@@ -7,7 +7,7 @@ authors = [
     {name = "rafaela albano", email = "rafaelaalbano70@gmail.com"},
 ]
 dependencies = [
-    "django>=4.2.5",
+    "django>=4.2.6",
     "django-cors-headers>=4.2.0",
     "drf-spectacular>=0.26.5",
     "python-magic>=0.4.27",
@@ -16,6 +16,9 @@ dependencies = [
     "django-extensions>=3.2.3",
     "pydotplus>=2.0.2",
     "djangorestframework>=3.14.0",
+    "setuptools>=68.2.2",
+    "python-dotenv>=1.0.0",
+    "netifaces>=0.11.0",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -24,3 +27,7 @@ license = {text = "MIT"}
 dev = [
     "black>=23.7.0",
 ]
+
+[tool.pdm.scripts]
+pre_dev = "python ./scripts/set_my_ip.py"
+dev = "python manage.py runserver 0.0.0.0:19003"

@@ -11,6 +11,8 @@ from drf_spectacular.views import (
 )
 
 from ourfood.views import CategoriaViewSet, ProdutoViewSet, ClienteViewSet, PedidoViewSet, ItemPedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet
+from usuario.router import router as usuario_router
+
 
 router = DefaultRouter()
 router.register(r"categorias", CategoriaViewSet, basename="categorias")
@@ -37,5 +39,6 @@ urlpatterns = [
         name="redoc",
     ),
     path("api/", include(router.urls)),
+    path("api/", include(usuario_router.urls)),
 ]
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)

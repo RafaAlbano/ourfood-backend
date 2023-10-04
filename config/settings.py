@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "uploader",
+    "usuario",
     "ourfood",
 ]
+
+AUTH_USER_MODEL = "usuario.Usuario"
 
 REST_FRAMEWORK = {
     # "DEFAULT_PERMISSION_CLASSES": [
