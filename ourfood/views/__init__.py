@@ -5,3 +5,4 @@ from .produto import ProdutoViewSet
 from .itempedido import ItemPedidoViewSet
 from .formapagamento import FormaDePagamentoViewSet
 from .pagamento import PagamentoViewSet
+from .administrador import AdministradorViewSet
