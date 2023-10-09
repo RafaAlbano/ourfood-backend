@@ -13,6 +13,10 @@ class Usuario(AbstractUser):
     data_nascimento = models.DateField(
         _("Birth Date"), auto_now=False, auto_now_add=False, blank=True, null=True
     )
+    password = models.CharField(max_length=128)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+    EMAIL_FIELD = "email"
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
