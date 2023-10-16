@@ -7,4 +7,4 @@ class Pedido(models.Model):
     data_hora = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.id} - {self.cliente.nome} - {self.status} - {self.data_hora}"
+        return f"{self.id} - {self.usuario.first_name} - {self.status} - {self.data_hora}"
