@@ -1,8 +1,8 @@
 from django.db import models
-from ourfood.models import Cliente  
+from usuario.models import Usuario
 
 class Pedido(models.Model):
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     status = models.CharField(max_length=225)
     data_hora = models.DateTimeField()
 

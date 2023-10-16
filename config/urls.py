@@ -15,7 +15,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from ourfood.views import CategoriaViewSet, ProdutoViewSet, ClienteViewSet, PedidoViewSet, ItemPedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet, AdministradorViewSet
+from ourfood.views import CategoriaViewSet, ProdutoViewSet, PedidoViewSet, ItemPedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet
 from usuario.router import router as usuario_router
 
 
@@ -23,12 +23,9 @@ router = DefaultRouter()
 router.register(r"categorias", CategoriaViewSet, basename="categorias")
 router.register(r"produtos", ProdutoViewSet, basename="produtos")
 router.register(r"pedidos", PedidoViewSet, basename="pedidos")
-router.register(r"clientes", ClienteViewSet, basename="clientes")
 router.register(r"itempedidos", ItemPedidoViewSet, basename="itempedidos")
 router.register(r"formapagamentos", FormaDePagamentoViewSet, basename="formadepagamentos")
 router.register(r"pagamentos", PagamentoViewSet, basename="pagamentos")
-router.register(r"administradores", AdministradorViewSet, basename="administradores")
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
