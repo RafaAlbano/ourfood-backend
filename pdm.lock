@@ -6,7 +6,7 @@ groups = ["default", "dev"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:12a8efff9d86478ec81e7af46ab50821d70b9f975eeb3df719f2c6f4aef7576a"
+content_hash = "sha256:d8574d3e6a97edc51312555efe1afa70f285ea840630cb7f924d4169cd1ca195"
 
 [[package]]
 name = "asgiref"
@@ -618,25 +618,25 @@ files = [
 
 [[package]]
 name = "whitenoise"
-version = "6.5.0"
-requires_python = ">=3.7"
+version = "6.6.0"
+requires_python = ">=3.8"
 summary = "Radically simplified static file serving for WSGI applications"
 files = [
-    {file = "whitenoise-6.5.0-py3-none-any.whl", hash = "sha256:16468e9ad2189f09f4a8c635a9031cc9bb2cdbc8e5e53365407acf99f7ade9ec"},
-    {file = "whitenoise-6.5.0.tar.gz", hash = "sha256:15fe60546ac975b58e357ccaeb165a4ca2d0ab697e48450b8f0307ca368195a8"},
+    {file = "whitenoise-6.6.0-py3-none-any.whl", hash = "sha256:b1f9db9bf67dc183484d760b99f4080185633136a273a03f6436034a41064146"},
+    {file = "whitenoise-6.6.0.tar.gz", hash = "sha256:8998f7370973447fac1e8ef6e8ded2c5209a7b1f67c1012866dbcd09681c3251"},
 ]
 
 [[package]]
 name = "whitenoise"
-version = "6.5.0"
+version = "6.6.0"
 extras = ["brotli"]
-requires_python = ">=3.7"
+requires_python = ">=3.8"
 summary = "Radically simplified static file serving for WSGI applications"
 dependencies = [
     "Brotli",
-    "whitenoise==6.5.0",
+    "whitenoise==6.6.0",
 ]
 files = [
-    {file = "whitenoise-6.5.0-py3-none-any.whl", hash = "sha256:16468e9ad2189f09f4a8c635a9031cc9bb2cdbc8e5e53365407acf99f7ade9ec"},
-    {file = "whitenoise-6.5.0.tar.gz", hash = "sha256:15fe60546ac975b58e357ccaeb165a4ca2d0ab697e48450b8f0307ca368195a8"},
+    {file = "whitenoise-6.6.0-py3-none-any.whl", hash = "sha256:b1f9db9bf67dc183484d760b99f4080185633136a273a03f6436034a41064146"},
+    {file = "whitenoise-6.6.0.tar.gz", hash = "sha256:8998f7370973447fac1e8ef6e8ded2c5209a7b1f67c1012866dbcd09681c3251"},
 ]
