@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "corsheaders",
     "rest_framework",
+    "rest_framework_simplejwt",
     "uploader",
     "usuario",
     "ourfood",
@@ -76,6 +77,9 @@ REST_FRAMEWORK = {
     #     # "rest_framework.permissions.IsAuthenticated",
     # ]
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
 }
 SPECTACULAR_SETTINGS = {
     "TITLE": "Ourfood API",

@@ -10,6 +10,11 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 from ourfood.views import CategoriaViewSet, ProdutoViewSet, ClienteViewSet, PedidoViewSet, ItemPedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet, AdministradorViewSet
 from usuario.router import router as usuario_router
 
@@ -27,7 +32,7 @@ router.register(r"administradores", AdministradorViewSet, basename="administrado
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include(router.urls)),
+    path("api/", include(router.urls)),
     path("api/media/", include(uploader_router.urls)),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
@@ -42,5 +47,7 @@ urlpatterns = [
     ),
     path("api/", include(router.urls)),
     path("api/", include(usuario_router.urls)),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
