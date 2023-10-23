@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 load_dotenv()
 
 MODE = os.getenv("MODE")
@@ -10,22 +12,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "https://*.fl0.io/"]
-
-
-if MODE in ["PRODUCTION", "MIGRATE"]:
-    MEDIA_URL = '/media/' 
-else:    
-    MY_IP = os.getenv("MY_IP", "127.0.0.1")
-    MEDIA_URL = f"http://{MY_IP}:19003/media/"
-
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = "django-insecure-u%*7=-1fpumn=zaq#)-wn4wpa^+)x7d)k4h@y@7z_5@0&is2ek"
-
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -95,8 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
-
 if MODE in ["PRODUCTION", "MIGRATE"]:
     DATABASES = {
         "default": {
@@ -116,9 +100,6 @@ else:
         }
     }
 
-print(MODE, DATABASES)
-
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -137,28 +118,26 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = "pt-br"
-
 TIME_ZONE = "America/Sao_Paulo"
-
 USE_I18N = True
-
 USE_TZ = True
-
-
-STATIC_URL = "static/"
-
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MEDIA_URL = "/media/"
+STATIC_URL = "static/"
 MEDIA_ENDPOINT = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 FILE_UPLOAD_PERMISSIONS = 0o640
 
-if MODE == "PRODUCTION":
+if MODE in ["PRODUCTION", "MIGRATE"]:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    MEDIA_URL = '/media/' 
+else:    
+    MY_IP = os.getenv("MY_IP", "127.0.0.1")
+    MEDIA_URL = f"http://{MY_IP}:19003/media/"
 
 CORS_ALLOW_ALL_ORIGINS = True   
+
+print(MODE, MEDIA_URL, DATABASES)
