@@ -13,9 +13,12 @@ class Pedido(models.Model):
     status = models.IntegerField(choices=StatusCompra.choices,  default=StatusCompra.CARRINHO)   
     
 class ItemPedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name="itens")
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name="itens")
     quantidade = models.IntegerField(default=1)
     preco = models.DecimalField(max_digits=4, decimal_places=2)
 
     # def __str__(self):
     #     return f"ItemPedido {self.id} - Produto: {self.produto.nome}, Pedido: {self.pedido.id}, Quantidade: {self.quantidade}, Preço: {self.preco}"
+
+

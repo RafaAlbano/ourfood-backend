@@ -15,9 +15,8 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from ourfood.views import CategoriaViewSet, ProdutoViewSet, PedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet
+from ourfood.views import CategoriaViewSet, ProdutoViewSet, PedidoViewSet, FormaDePagamentoViewSet, PagamentoViewSet, PedidoViewSet
 from usuario.router import router as usuario_router
-
 from uploader.router import router as uploader_router
 from usuario.views import UsuarioViewSet
 
