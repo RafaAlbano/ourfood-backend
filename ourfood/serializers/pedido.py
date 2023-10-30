@@ -25,18 +25,20 @@ class CriarEditarPedidoSerializer(ModelSerializer):
     itens = ItemPedidoSerializer(many=True)
 
     class Meta:
-        model = Pedido
-        fields = ("usuario", "itens")
+        model = Pedido, ItemPedido
+        fields = ("usuario", "itens", "pedido","quantidade")
+
+    # def create(self, validated_data):
+    #     itens_data = validated_data.pop("itens")
+    #     pedido = Pedido.objects.create(**validated_data)
+    #     for item_data in itens_data:
+    #         ItemPedido.objects.create(pedido=pedido, **item_data)
+    #     pedido.save()
+    #     return pedido
     
-    def create(self, validated_data):
-        itens_data = validated_data.pop("itens")
-        pedido = Pedido.objects.create(**validated_data)
-        for item_data in itens_data:
-            ItemPedido.objects.create(pedido=pedido, **item_data)
-        pedido.save()
-        return pedido
-    
-class CriarEditarItensCompraSerializer(ModelSerializer):
-    class Meta:
-        model = ItemPedido
-        fields = ("pedido", "quantidade")
+    def validate(self, data):
+        if data["quantidade"] > data["livro"].quantidade:
+            raise serializers.ValidationError(
+                {"quantidade": "Quantidade solicitada não disponível em estoque."}
+            )
+        return data
