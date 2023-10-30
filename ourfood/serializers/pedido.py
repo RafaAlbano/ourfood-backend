@@ -28,13 +28,14 @@ class CriarEditarPedidoSerializer(ModelSerializer):
         model = Pedido, ItemPedido
         fields = ("usuario", "itens", "pedido","quantidade")
 
-    # def create(self, validated_data):
-    #     itens_data = validated_data.pop("itens")
-    #     pedido = Pedido.objects.create(**validated_data)
-    #     for item_data in itens_data:
-    #         ItemPedido.objects.create(pedido=pedido, **item_data)
-    #     pedido.save()
-    #     return pedido
+    def create(self, validated_data):
+        itens= validated_data.pop("itens")
+        pedido = Pedido.objects.create(**validated_data)
+        for item in itens:
+            item["preco_item"] = item["livro"].preco # Coloca o preço do livro no item de compra
+            ItemPedido.objects.create(pedido=pedido, **item)
+        pedido.save()
+        return pedido
     
     def validate(self, data):
         if data["quantidade"] > data["livro"].quantidade:
