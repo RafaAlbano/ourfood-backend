@@ -21,4 +21,11 @@ class ItemPedido(models.Model):
     # def __str__(self):
     #     return f"ItemPedido {self.id} - Produto: {self.produto.nome}, Pedido: {self.pedido.id}, Quantidade: {self.quantidade}, Preço: {self.preco}"
 
+@property
+def total(self):
+    # total = 0
+    # for item in self.itens.all():
+    # total += item.livro.preco * item.quantidade
+    # return total
+    return sum(item.pedido.preco * item.quantidade for item in self.itens.all())
 
