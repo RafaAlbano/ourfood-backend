@@ -10,6 +10,15 @@ class PedidoSerializer(ModelSerializer):
     class Meta:
         model = Pedido
         fields = ("id", "usuario", "status", "total", "itens")
+
+    def update(self, instance, validated_data):
+        itens = validated_data.pop("itens")
+        if itens:
+            instance.itens.all().delete()
+            for item in itens:
+                ItemPedido.objects.create(pedido=instance, **item)
+        instance.save()
+        return instance
        
 class CriarEditarPedidoSerializer(ModelSerializer):
     itens = ItemPedidoSerializer(many=True)
