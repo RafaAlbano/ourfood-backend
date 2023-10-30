@@ -1,11 +1,12 @@
 from rest_framework.serializers import ModelSerializer, CharField
 from ourfood.models import Pedido, ItemPedido 
 from ourfood.serializers import ItemPedidoSerializer
+from rest_framework import serializers
 
 class PedidoSerializer(ModelSerializer):
     itens = ItemPedidoSerializer(many=True)
     status = CharField(source="get_status_display")
-    usuario = CharField(source="usuario.email")
+    usuario = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Pedido
