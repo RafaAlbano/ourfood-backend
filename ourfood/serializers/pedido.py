@@ -22,11 +22,11 @@ class PedidoSerializer(ModelSerializer):
         return instance
        
 class CriarEditarPedidoSerializer(ModelSerializer):
-    itens = ItemPedidoSerializer(many=True)
+    # itens = ItemPedidoSerializer(many=True)
 
     class Meta:
-        model = Pedido, ItemPedido
-        fields = ("usuario", "itens", "pedido","quantidade")
+        model = Pedido
+        fields = ("usuario", "status", "total")
 
     def create(self, validated_data):
         itens= validated_data.pop("itens")
