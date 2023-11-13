@@ -4,7 +4,9 @@ from ourfood.models import Pedido
 from ourfood.serializers import PedidoSerializer, CriarEditarPedidoSerializer
 
 class PedidoViewSet(ModelViewSet):
-    queryset = Pedido.objects.all()     
+    queryset = Pedido.objects.all()  
+    filterset_fields = ["usuario", "status", "data"]
+    ordering_fields = ["usuario", "status", "data"]   
 
     def get_serializer_class(self):
         if self.action == 'create' or self.action == 'put':

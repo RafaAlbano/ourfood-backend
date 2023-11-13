@@ -7,10 +7,11 @@ class PedidoSerializer(ModelSerializer):
     itens = ItemPedidoSerializer(many=True)
     status = CharField(source="get_status_display")
     usuario = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    data = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = Pedido
-        fields = ("id", "usuario", "status", "total", "itens")
+        fields = ("id", "usuario", "status", "total", "itens", "data")
 
     def update(self, instance, validated_data):
         itens = validated_data.pop("itens")
