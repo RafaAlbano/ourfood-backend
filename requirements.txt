@@ -9,7 +9,7 @@ charset-normalizer==3.3.1
 cloudinary==1.36.0
 django==4.2.7
 django-cloudinary-storage==0.3.0
-django-cors-headers==4.3.0
+django-cors-headers==4.3.1
 django-extensions==3.2.3
 django-filter==23.3
 djangorestframework==3.14.0
