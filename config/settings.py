@@ -142,6 +142,6 @@ else:
     MY_IP = os.getenv("MY_IP", "127.0.0.1")
     MEDIA_URL = f"http://{MY_IP}:19003/media/"
 
-CORS_ALLOW_ALL_ORIGINS = [True]   
+CORS_ALLOW_ALL_ORIGINS = True  
 
 print(MODE, MEDIA_URL, DATABASES)
