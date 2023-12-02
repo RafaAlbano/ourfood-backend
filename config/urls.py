@@ -10,6 +10,9 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
+from usuario.views import CustomTokenObtainPairView
+
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -46,5 +49,6 @@ urlpatterns = [
     path("api/", include(usuario_router.urls)),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path('api/token/custom/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair_custom'),
 ]
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
