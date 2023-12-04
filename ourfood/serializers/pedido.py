@@ -6,7 +6,8 @@ from rest_framework import serializers
 class PedidoSerializer(ModelSerializer):
     itens = ItemPedidoSerializer(many=True)
     status = CharField(source="get_status_display")
-    usuario = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    # usuario = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    usuario = serializers.CharField(source='usuario.email')
     data = serializers.DateTimeField(read_only=True)
 
     class Meta:
