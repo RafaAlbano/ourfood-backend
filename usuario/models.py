@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from .managers import CustomUserManager
+from uploader.models import Image
 
 
 class Usuario(AbstractUser):
@@ -23,6 +24,14 @@ class Usuario(AbstractUser):
     EMAIL_FIELD = "email"
 
     objects = CustomUserManager()
+    capa = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+    )
 
     def __str__(self):
         return self.email

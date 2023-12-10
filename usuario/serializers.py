@@ -2,9 +2,14 @@ from rest_framework.serializers import ModelSerializer, SlugRelatedField
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 from .models import Usuario
+from rest_framework.serializers import ModelSerializer, SlugRelatedField
+from uploader.models import Image
+from uploader.serializers import ImageSerializer
 
 
 class UsuarioSerializer(ModelSerializer):
+    capa = ImageSerializer(required=False, read_only=True)
+
     class Meta:
         model = Usuario
         fields = "__all__"
