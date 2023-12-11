@@ -1,11 +1,18 @@
-from rest_framework.serializers import ModelSerializer, SerializerMethodField
-from ourfood.models import Pedido, ItemPedido
+from rest_framework.serializers import ModelSerializer, CharField
+from ourfood.models import Pedido, ItemPedido, Produto
+
+class ProdutoItemSerializer(ModelSerializer):
+   imagem = CharField(source='capa.url')
+   class Meta:
+      model = Produto
+      fields = ['id', 'nome', 'preco', 'imagem']
 
 class ItemPedidoSerializer(ModelSerializer):
+    produto = ProdutoItemSerializer()
     class Meta:
         # total = SerializerMethodField()
         model = ItemPedido
-        fields = ["pedido", "quantidade"]
+        fields = ["produto", "quantidade"]
         # fields="__all__"
         depth = 2
 
